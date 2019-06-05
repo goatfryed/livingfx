@@ -10,11 +10,14 @@ import java.util.Set;
 
 public class LivingFXMLLoader {
     private final Set<LoadPostProcessor> postProcessors = new LinkedHashSet<>();
-
     private final FXMLLoader wrapped;
 
     public LivingFXMLLoader() {
         wrapped = new FXMLLoader();
+    }
+
+    public FXMLLoader getWrapped() {
+        return wrapped;
     }
 
     /**
