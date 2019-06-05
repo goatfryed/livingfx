@@ -7,11 +7,6 @@ import java.util.Set;
 public interface LivingParentController extends LivingController {
 
     @Override
-    default void componentDidUpdate() {
-        getManagedChilds().forEach(LivingController::componentDidUpdate);
-    }
-
-    @Override
     default void componentDidMount() {
         getManagedChilds().forEach(LivingController::componentDidMount);
     }
