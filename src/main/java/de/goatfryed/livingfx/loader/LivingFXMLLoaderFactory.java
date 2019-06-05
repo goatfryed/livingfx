@@ -9,7 +9,7 @@ public class LivingFXMLLoaderFactory {
 
     public LivingFXMLLoaderFactory()
     {
-
+        addPostProcessor(p -> p.addPostProcessor(new RootAwareProcessor()));
     }
 
     public Set<LoaderPostProcessor> getPostProcessors() {
