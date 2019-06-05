@@ -1,29 +1,27 @@
 package de.goatfryed.livingfx.controller;
 
-import javafx.scene.layout.Pane;
-
 import java.util.Set;
 
 public interface LivingParentController extends LivingController {
 
     @Override
-    default void componentDidMount() {
-        getManagedChilds().forEach(LivingController::componentDidMount);
+    default void didMount() {
+        getManagedChilds().forEach(LivingController::didMount);
     }
 
     @Override
-    default void componentWillUnmount() {
-        getManagedChilds().forEach(LivingController::componentWillUnmount);
+    default void willUnmount() {
+        getManagedChilds().forEach(LivingController::willUnmount);
     }
 
     @Override
-    default void componentDidUnmount() {
-        getManagedChilds().forEach(LivingController::componentDidUnmount);
+    default void didUnmount() {
+        getManagedChilds().forEach(LivingController::didUnmount);
     }
 
-    void mountChild(LivingController controller, Pane parent);
+    void mountChild(LivingController controller, ControllerMountAction mountAction);
 
-    void unmountChild(LivingController controller);
+    void unmountChild(LivingController controller, ControllerMountAction unmountAction);
 
     Set<LivingController> getManagedChilds();
 }

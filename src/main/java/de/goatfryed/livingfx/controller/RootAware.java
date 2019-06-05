@@ -1,8 +1,11 @@
 package de.goatfryed.livingfx.controller;
 
+
+import javafx.scene.Node;
+
 public interface RootAware {
 
-    void setRoot(Object root);
+    void setRoot(Node root);
 
-    <T> T getRoot();
+    <T extends Node> T getRoot();
 }

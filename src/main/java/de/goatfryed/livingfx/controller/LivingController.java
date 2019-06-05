@@ -2,15 +2,15 @@ package de.goatfryed.livingfx.controller;
 
 public interface LivingController extends RootAware {
 
-    default void componentDidMount() {
+    default void didMount() {
 
     }
 
-    default void componentWillUnmount() {
+    default void willUnmount() {
 
     }
 
-    default void componentDidUnmount() {
+    default void didUnmount() {
 
     }
 }
