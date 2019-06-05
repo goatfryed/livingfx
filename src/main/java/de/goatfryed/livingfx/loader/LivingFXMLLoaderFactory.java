@@ -1,11 +1,11 @@
 package de.goatfryed.livingfx.loader;
 
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class LivingFXMLLoaderFactory {
 
-    private final Set<LoaderPostProcessor> postProcessors = new HashSet<>();
+    private final Set<LoaderPostProcessor> postProcessors = new LinkedHashSet<>();
 
     public LivingFXMLLoaderFactory()
     {

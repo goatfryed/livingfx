@@ -8,13 +8,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.nio.charset.Charset;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.ResourceBundle;
-import java.util.Set;
+import java.util.*;
 
 public class LivingFXMLLoader extends FXMLLoader {
-    private final Set<LoadPostProcessor> postProcessors = new HashSet<>();
+    private final Set<LoadPostProcessor> postProcessors = new LinkedHashSet<>();
 
     public LivingFXMLLoader() {
     }
