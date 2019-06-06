@@ -59,12 +59,12 @@ public class LivingParentControllerTest {
             }
 
             @Override
-            public void mountChild(LivingController controller, Consumer<LivingController> mountAction) {
+            public <T> void mountChild(T controller, Consumer<T> mountAction) {
                 Assert.fail();
             }
 
             @Override
-            public void unmountChild(LivingController controller, Consumer<LivingController> unmountAction) {
+            public <T> void unmountChild(T controller, Consumer<T> unmountAction) {
                 Assert.fail();
             }
 

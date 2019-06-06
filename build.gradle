@@ -7,7 +7,6 @@
 
 plugins {
     id 'java-library'
-    id 'org.openjfx.javafxplugin' version '0.0.7'
 }
 
 repositories {
@@ -22,9 +21,4 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     testImplementation group: 'org.testfx', name: 'testfx-core', version: '4.0.15-alpha'
     testImplementation group: 'org.testfx', name: 'testfx-junit', version: '4.0.15-alpha'
-}
-
-javafx {
-    version = '11.0.2'
-    modules = [ 'javafx.fxml' ]
 }
