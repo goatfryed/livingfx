@@ -12,8 +12,8 @@ public class MountingParentTest {
     @Test
     public void testLifeCycle() {
 
-        final LivingFXMLLoader parentLoader = new LivingFXMLLoaderFactory().createLoader(getClass().getResource("parent.fxml"));
-        final LivingFXMLLoader childLoader = new LivingFXMLLoaderFactory().createLoader(getClass().getResource("child.fxml"));
+        final LivingFXMLLoader parentLoader = new LivingFXMLLoaderFactory().createLoader(getClass().getResource("/fxml/parent.fxml"));
+        final LivingFXMLLoader childLoader = new LivingFXMLLoaderFactory().createLoader(getClass().getResource("/fxml/child.fxml"));
         final LivingController anotherChild = new LivingController() {
             @Override
             public void setRoot(Node root) {
