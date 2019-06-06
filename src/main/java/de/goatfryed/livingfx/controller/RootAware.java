@@ -1,6 +1,5 @@
 package de.goatfryed.livingfx.controller;
 
-
 import javafx.scene.Node;
 
 public interface RootAware {

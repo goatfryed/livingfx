@@ -1,14 +1,13 @@
 package de.goatfryed.livingfx.controller;
 
 import javafx.scene.Node;
-import javafx.scene.layout.Pane;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
 
 public abstract class BaseParent<RootType extends Node> implements LivingParentController {
 
-    Set<LivingController> managedChilds = new LinkedHashSet<>();
+    Set<LivingController> managedChildren = new LinkedHashSet<>();
 
     RootType root;
 
@@ -25,7 +24,7 @@ public abstract class BaseParent<RootType extends Node> implements LivingParentC
     @Override
     final public void didMount() {
         onComponentDidMount();
-        getManagedChilds().forEach(LivingController::didMount);
+        getManagedChildren().forEach(LivingController::didMount);
     }
 
     public void onComponentDidMount() {
@@ -34,8 +33,8 @@ public abstract class BaseParent<RootType extends Node> implements LivingParentC
 
     @Override
     final public void willUnmount() {
+        getManagedChildren().forEach(LivingController::willUnmount);
         onComponentWillUnmount();
-        getManagedChilds().forEach(LivingController::willUnmount);
     }
 
     public void onComponentWillUnmount() {
@@ -43,8 +42,8 @@ public abstract class BaseParent<RootType extends Node> implements LivingParentC
 
     @Override
     final public void didUnmount() {
-        getManagedChilds().forEach(LivingController::didUnmount);
         onComponentDidUnmount();
+        getManagedChildren().forEach(LivingController::didUnmount);
     }
 
     public void onComponentDidUnmount() {
@@ -52,7 +51,7 @@ public abstract class BaseParent<RootType extends Node> implements LivingParentC
     }
 
     @Override
-    public Set<LivingController> getManagedChilds() {
-        return managedChilds;
+    public Set<LivingController> getManagedChildren() {
+        return managedChildren;
     }
 }

@@ -2,6 +2,8 @@ package de.goatfryed.livingfx.controller;
 
 import javafx.scene.layout.Pane;
 
+import java.util.function.Consumer;
+
 abstract public class MountingParent extends BaseParent {
     public void mountChild(LivingController controller, Pane pane) {
         mountChild(
@@ -14,9 +16,9 @@ abstract public class MountingParent extends BaseParent {
      * @throws IllegalStateException if the controller was already mounted
      */
     @Override
-    public void mountChild(LivingController controller, ControllerMountAction mountAction) {
-        if (getManagedChilds().add(controller)) {
-            mountAction.apply(controller);
+    public void mountChild(LivingController controller, Consumer<LivingController> mountAction) {
+        if (getManagedChildren().add(controller)) {
+            mountAction.accept(controller);
             controller.didMount();
         } else {
             throw new IllegalStateException("given controller was already managed");
@@ -25,11 +27,9 @@ abstract public class MountingParent extends BaseParent {
     }
 
     @Override
-    public void unmountChild(LivingController controller, ControllerMountAction unmountAction) {
-        if (getManagedChilds().remove(controller)) {
-            controller.willUnmount();
-            unmountAction.apply(controller);
-            controller.didUnmount();
+    public void unmountChild(LivingController controller, Consumer<LivingController> unmountAction) {
+        if (getManagedChildren().remove(controller)) {
+            controller.unmount(unmountAction);
         }
     }
 }

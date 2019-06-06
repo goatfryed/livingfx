@@ -1,27 +1,30 @@
 package de.goatfryed.livingfx.controller;
 
+import javax.annotation.Nonnull;
 import java.util.Set;
+import java.util.function.Consumer;
 
 public interface LivingParentController extends LivingController {
 
     @Override
     default void didMount() {
-        getManagedChilds().forEach(LivingController::didMount);
+        getManagedChildren().forEach(LivingController::didMount);
     }
 
     @Override
     default void willUnmount() {
-        getManagedChilds().forEach(LivingController::willUnmount);
+        getManagedChildren().forEach(LivingController::willUnmount);
     }
 
     @Override
     default void didUnmount() {
-        getManagedChilds().forEach(LivingController::didUnmount);
+        getManagedChildren().forEach(LivingController::didUnmount);
     }
 
-    void mountChild(LivingController controller, ControllerMountAction mountAction);
+    void mountChild(LivingController controller, Consumer<LivingController> mountAction);
 
-    void unmountChild(LivingController controller, ControllerMountAction unmountAction);
+    void unmountChild(LivingController controller, Consumer<LivingController> unmountAction);
 
-    Set<LivingController> getManagedChilds();
+    @Nonnull
+    Set<LivingController> getManagedChildren();
 }
