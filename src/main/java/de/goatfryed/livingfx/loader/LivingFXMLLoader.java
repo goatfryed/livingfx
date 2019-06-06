@@ -2,10 +2,12 @@ package de.goatfryed.livingfx.loader;
 
 import javafx.fxml.FXMLLoader;
 
+import javax.annotation.Nonnull;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.LinkedHashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public class LivingFXMLLoader {
@@ -64,7 +66,8 @@ public class LivingFXMLLoader {
         return wrapped.getLocation();
     }
 
-    public void setLocation(URL location) {
+    public void setLocation(@Nonnull URL location) {
+        Objects.requireNonNull(location, "Invalid location value given. Location must be not null");
         wrapped.setLocation(location);
     }
 
