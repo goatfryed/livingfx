@@ -21,9 +21,10 @@ public interface LivingParentController extends LivingController {
         getManagedChildren().forEach(LivingController::didUnmount);
     }
 
-    void mountChild(LivingController controller, Consumer<LivingController> mountAction);
 
-    void unmountChild(LivingController controller, Consumer<LivingController> unmountAction);
+    <T> void mountChild(T controller, Consumer<T> mountAction);
+
+    <T> void unmountChild(T controller, Consumer<T> unmountAction);
 
     @Nonnull
     Set<LivingController> getManagedChildren();
