@@ -64,6 +64,10 @@ public class LivingFXMLLoader {
         return wrapped.getLocation();
     }
 
+    public void setLocation(URL location) {
+        wrapped.setLocation(location);
+    }
+
     public <T> T getController() {
         return wrapped.getController();
     }
